@@ -103,6 +103,10 @@ En parallèle, les programmes ont commencé à utiliser des bases de données de
 
 En 1997, le programme Deep Blue d'IBM a battu le champion du monde d'échecs, Garry Kasparov, en utilisant des techniques d'élagage avancées et une base de données de finales d'échecs encore plus grande.
 
+<p align="center">
+  <img src="./img/kasparov-deep-blue.jpg" height="100"/>
+</p>
+
 Depuis lors, les programmes d'échecs ont continué à se développer, en utilisant des algorithmes de recherche plus avancés, tels que l'arbre de jeu alpha-bêta, et des techniques d'apprentissage automatique pour améliorer leur jeu. Ces programmes utilisent souvent des réseaux neuronaux pour identifier les caractéristiques importantes des positions de jeu. Les programmes d'échecs modernes sont souvent entraînés à partir de grandes bases de données de parties d'échecs, leur permettant de développer des stratégies plus sophistiquées et plus proches du jeu humain.
 
 
@@ -112,6 +116,10 @@ Actuellement, de très nombreux algorithmes permettent de battre les humains. A 
 L'ELO se calcule grâce aux résultats de match face à d'autres joueurs possédant déjà un ELO; mais dans le cas d'un match homme-machine, si l'humain perd tous ses matchs la mesure ne peut pas être effectuée. Il faudrait que l'humain puisse au moins obtenir quelques matchs nuls pour avoir une mesure pertinente.
 
 Les algorithmes actuels se mesurent donc plutôt les uns aux autres. Cela se fait à la fois à travers un classement ELO (entre machines)[^engine-ranking], et une compétition directe organisée tous les quelques mois depuis 2010, le Top Chess Engine Championship[^TCEC].
+
+<p align="center">
+  <img src="./img/stockfish.jpg" height="100"/>
+</p>
 
 Parmi les algorithmes les plus performants, on peut citer Stockfish[^stockfish], actuellement en version 15.1, qui se démarque clairement de ses concurrents par ses performances mais aussi sa popularité. Il y en a de nombreux autres, tels Leela[^leela], Komodo, Houdini, AlphaZero...
 
@@ -127,9 +135,9 @@ Il y a différentes métriques pour calculer la compléxité d'un jeu combinatoi
 Pour le jeu de Go, les chercheurs ont exploré différentes méthodes algorithmiques. Avant les années 2000, les approches traditionnelles telles que la recherche en profondeur ne permettaient d'atteindre qu'un niveau très amateur.
 Jusqu'à 2013, des améliorations ont eu lieu grâce à des approches alternatives telles que les arbres de Monte Carlo (MCTS) et les réseaux de neurones. Ces réseaux de neurones sont entraînés sur des larges bases de données de parties de Go. En 2013, ils restent néanmoins loin de battre les meilleurs joueurs humains.
 
-C'est avec le programme AlphaGo de DeepMind que des avancées majeures ont lieu. Ce programme utilise des techniques d'apprentissage profond pour s'entraîner, et peut améliorer continuellement ses performances grâce à l'utilisation de techniques de renforcement.
+C'est avec le programme AlphaGo de DeepMind que des avancées majeures ont lieu[^go-deepmind]. Ce programme utilise des techniques d'apprentissage profond pour s'entraîner, et peut améliorer continuellement ses performances grâce à l'utilisation de techniques de renforcement.
 
-En 2016, AlphaGo bat Lee Sedol, joueur coréeen au plus haut niveau, au cours d'un match trè médiatisé. Le champion du monde de Go est battu l'année suivant. DeepMind ne s'arrête pas là et développe ensuite AlphaZeroGo. Contrairement à son prédecesseur, ce programme ne dispose pas de base de donnéees de parties pour son apprentissage initial et s'entraîne uniquement en jouant contre lui-même. Enfin, le succès d'AlphaGo Zero permet à AlphaZero de voir le jour en décembre 2017. AlphaZero est une évolution supplémentaire d'AlphaGo Zero qui a été conçue pour apprendre à jouer non seulement au jeu de Go, mais également aux jeux d'échecs et de shogi. AlphaZero utilise un réseau de neurones unique qui peut être utilisé pour jouer à tous les jeux pour lesquels il a été programmé, plutôt que d'avoir un réseau de neurones séparé pour chaque jeu.
+En 2016, AlphaGo bat Lee Sedol, joueur coréeen au plus haut niveau, au cours d'un match trè médiatisé[^go-sedol]. Le champion du monde de Go est battu l'année suivant. DeepMind ne s'arrête pas là et développe ensuite AlphaZeroGo. Contrairement à son prédecesseur, ce programme ne dispose pas de base de donnéees de parties pour son apprentissage initial et s'entraîne uniquement en jouant contre lui-même. Enfin, le succès d'AlphaGo Zero permet à AlphaZero de voir le jour en décembre 2017. AlphaZero est une évolution supplémentaire d'AlphaGo Zero qui a été conçue pour apprendre à jouer non seulement au jeu de Go, mais également aux jeux d'échecs et de shogi. AlphaZero utilise un réseau de neurones unique qui peut être utilisé pour jouer à tous les jeux pour lesquels il a été programmé, plutôt que d'avoir un réseau de neurones séparé pour chaque jeu.
 
 En s'inspirant des algorithmes développées par DeepMind, plusieurs autres programmes sont maintenent capables de battre les meilleurs joueurs humains.
 
@@ -152,7 +160,7 @@ En 1950, John Nash présente le concept d'équilibre de Nash[^nash]. L'équilibr
 
 L'équilibre de Nash peut être trouvé dans des jeux à deux joueurs ou à plusieurs joueurs, il peut également être appliqué à une grande variété de situations, étant notamment utilisé dans des théories économiques, politiques et sociales. Un programme informatique souhaitant trouver le meilleur coup doit donc respecter l'équilibre de Nash. Une autre façon de le formuler est que le programme doit supposer que le joueur en face jouera lui aussi de manière optimale.
 
-Là où Nash aborde la question d'un point de vue mathématique, Arthur Samuel le traduit en termes informatiques. En 1959, il présente ainsi le concept de minimax, avec cette citation qui fut reprise en 1979[^minimax-samuel]:
+Là où Nash aborde la question d'un point de vue mathématique, Arthur Samuel le traduit en termes informatiques. En 1959, il présente ainsi le concept de minimax, avec cette citation qui fut reprise en 1979 dans un article du journal Personal Comuting[^minimax-samuel]:
 >Une analyse doit être effectuée en remontant à partir des positions évaluées sur l'échiquier à travers « l'arbre » des mouvements possibles, chaque fois en tenant compte de l'intention du côté dont le mouvement est examiné, en supposant que l'adversaire essaierait toujours de minimiser le score de la machine tout comme la machine agit pour maximiser son score. A chaque embranchement, la position correspondante sur l'échiquier reçoit le score de la position sur l'échiquier qui résulterait du coup le plus favorable. Le report de cette procédure «minimax» au point de départ entraîne la sélection d'un «meilleur coup».
 
 
@@ -214,6 +222,7 @@ Enfin, ces programmes informatiques permettent aussi aux humains de progresser: 
     Schaeffer, Jonathan, Yngvi Björnsson, Akihiro Kishimoto, Martin Müller, Robert Lake, Paul Lu, et Steve Sutphen. « Checkers Is Solved ». Science 317 (1 octobre 2007): 1518‑22. <https://doi.org/10.1126/science.1144079>.
 
 [^minimax-samuel]:
+    Personal Computing 1979 07, 1979, pages 88-89. http://archive.org/details/PersonalComputing197907.
     >An analysis must be made proceeding backward from the evaluated board positions through the ‘tree’ of possible moves, each time with consideration of the intent of the side whose move is being examined, assuming that the opponent would always attempt to minimize the machine’s score while the machine acts to maximize its score. At each branch point, then, the corres- ponding board position is given the score of the board position which would result from the most favorable move. Carrying this ‘minimax’ proce- dure back to the starting point results in the selection of a ‘best move.
 
 [^bitboard]:
@@ -221,6 +230,9 @@ Enfin, ces programmes informatiques permettent aussi aux humains de progresser: 
 
 [^nash]:
     John Nash, « Equilibrium Points in N-Person Games ». Proceedings of the National Academy of Sciences, 1950. https://doi.org/10.1073/pnas.36.1.48.
+
+[^go-deepmind]:
+    « Mastering the Game of Go with Deep Neural Networks & Tree Search ». Consulté le 10 mars 2023. https://www.deepmind.com/publications/mastering-the-game-of-go-with-deep-neural-networks-tree-search.
 
 [^man-vs-machine]:
     Jonathan Schaeffer, « Checkers: A Preview of What Will Happen in Chess? » 
@@ -250,3 +262,6 @@ Enfin, ces programmes informatiques permettent aussi aux humains de progresser: 
 [^aronian-quote]:
     Chess News. « Aronian: “I Have a Lot of Blood in My Brain” », 20 novembre 2008. <https://en.chessbase.com/post/aronian-i-have-a-lot-of-blood-in-my-brain->.
     > Chess programs are our enemies, they destroy the romance of chess. They take away the beauty of the game. Everything can be calculated.
+
+[^go-sedol]:
+    BBC News. « Artificial Intelligence: Google’s AlphaGo Beats Go Master Lee Se-Dol », 12 mars 2016, sect. Technology. https://www.bbc.com/news/technology-35785875.
