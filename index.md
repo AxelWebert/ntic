@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 
 Le terme "jeu combinatoire à information parfaite" définit une catégorie de jeux respectant 4 critères:
 
@@ -40,9 +40,17 @@ Notons qu'il existe de nombreux autres jeux correspondant à ces critères: Othe
    </div> 
 </div> 
 
-### Le jeu de Dames
+Dès ses débuts, l'intelligence artificielle s'est confronté à ce type de jeu. Afin de construire des algorithmes performants pour jouer à ces jeux, de nombreuses méthodes d'intelligence artificielle ont été développées, notamment du Machine Learning. Les échecs en particulier ont été largement utilisés pour démontrer la puissance de ces algorithmes. La démonstration la plus connue a eu lieu en 1997 lorsque l'ordinateur Deep Blue d'IBM a battu le champion du monde Garry Kasparov.
 
-#### Histoire
+Ces progrès informatiques s'étalent sur plusieurs décennies et continuent aujourd"hui. L'objectif de cette synthèse est de présenter l'évolution de ces technologies de leurs débuts jusqu'à nos jours, de décrire les méthodes algorithmiques les plus couramment employées, et enfin de s'intéresser dans le cadre des échecs à la place de ces algorithmes dans une activité qui était auparavant l'apanage des humains.
+
+ont toujours été l’un des jeux le plus fréquemment utilisé pour démontrer la puissance de ces algorithmes, grâce à sa popularité dans le monde. Cependant, le vrai point de rupture eut lieu en 1997, avec la défaite de Garry Kasparov, à ce moment champion du monde d’échecs, par Deep Blue, un super ordinateur créé par IBM.
+
+Cela fait déjà maintenant quelques dizaines d’années que de nombreuses personnes se posent la question de la performance des intelligences artificielles dans ce type de jeu. Dès 1958, on observe déjà des algorithmes capables de battre des humains lambda aux échecs, c’est à dire avec très peu de connaisances du jeu, à travers le NSS Chess Program, développé par trois chercheurs de Carnegie Mellon University. Les échecs ont toujours été l’un des jeux le plus fréquemment utilisé pour démontrer la puissance de ces algorithmes, grâce à sa popularité dans le monde. Cependant, le vrai point de rupture eut lieu en 1997, avec la défaite de Garry Kasparov, à ce moment champion du monde d’échecs, par Deep Blue, un super ordinateur créé par IBM. Depuis ce jour, les algorithmes n’ont cessé d’évoluer, on est capables de développer ce type d’algorithmes pour la majorité des jeux de stratégie combinatoires abstraits, et ils n’ont aucun mal à battre les meilleurs joueurs humains.
+
+## Le jeu de Dames
+
+### L'histoire du programme Chinook
 
 Pour aborder l'histoire de la résolution du jeu de dames par l'informatique, un article de "The Atlantic"[^checkers-solved-atlantic] offre un récit détaillé de cette aventure, lui prêtant un air romanesque.
 3 personnes sont mises en avant: Arthur Samuel, pionnier du Machine Learning dans les années 50, dont le programme bat un humain en 1963, mais dont les progrès restent très limités par les technologies de l'époque; Marion Tinsley, Champion du Monde de Dames et considéré unanimement comme le plus grand joueur de tous les temps, ayant perdu seulement 3 fois entre 1950 et 1991; et Jonathan Schaeffer, programmeur qui développa le projet Chinook en 1989, qui dès 1992 affronta avec son programme Marion Tinsley et perdit de peu.
@@ -67,9 +75,7 @@ Pour aborder l'histoire de la résolution du jeu de dames par l'informatique, un
 L'histoire racontée par The Atlantic est pourtant bien ancrée dans la réalité: c'est exactement la même histoire qui est raconté en 2008 par Jonathan Schaeffer lui-même dans son article publié dans Science annoncant que les dames étaient un jeu résolu (Checkers Was Solved)[^checkers-solved-paper]. En 3 paragraphes brefs, il décrit la même histoire et explique que, Tinsley étant malheureusement décédé en 1994, la revanche entre CHINOOK et lui avait été interrompue, la seule manière de prouver de manière convaincante la supériorité de l'ordinateur sur l'humain était de prouver rigoureusement que le jeu de Dames est un jeu résolu.
 
 
-
-
-### Comment le jeu de dames fut résolu
+## Comment le jeu de dames fut résolu
 
 Revenons à l'article publié par Jonathan Schaeffer[^checkers-solved-paper]. Qu'est-ce qu'un jeu résolu ? Schaeffer nous en donne une définition dans l'article, ou plutôt 3 définitions correspondant à 3 niveaux de résolution:
 * Pour un jeu résolu ultra-faiblement, on connaît le résultat final d'un jeu joué à la perfection: ainsi, on sait qu'avec le jeu de Hex la victoire appartient au premier joueur, mais sur des grandes tailles de terrain on ne connaît pas la stratégie gagnante.
@@ -80,11 +86,13 @@ Ce n'est pas le cas des dames: avec ses 5x10^20 positions possibles, l'espace de
 
 Calculer toutes les positions est un méthode utile pour la fin de partie, lorsque le nombre de pièces restants en jeu est plus faible.
 
-La base de données complètes pour 10 pièces ou moins comprend 39 000 milliards de positions (4.10^13), compressée en 237 Go (notons que la méthode de compression n'est pas la plus efficace possible en espace, car elle est conçue pour conserver un accès rapide aux données). Notons également que les données, pour chaque position, ne comprend que l'information minimale sur l'évalution (victoire/nulle/défaite) et non l'information sur le meilleur coup à jouer.
+En 1989, la base de données pour seulement pour 4 pièces était calculée. Le programme Chinook monta à 8 pièces en 1996, puis entre 2001 et 2005 la base pour 10 pièces fut calculée. La base de données complètes pour 10 pièces ou moins comprend 39 000 milliards de positions (4.10^13), compressée en 237 Go (notons que la méthode de compression n'est pas la plus efficace possible en espace, car elle est conçue pour conserver un accès rapide aux données). Notons également que les données, pour chaque position, ne comprend que l'information minimale sur l'évalution (victoire/nulle/défaite) et non l'information sur le meilleur coup à jouer.
 
-En 1989, seulement pour 4 pièces. Monté à 8 pièces en 1996, puis entre 2001 et 2005 la base pour 10 pièces fut calculée.
+La seconde partie de la résolution du jeu d'échecs consiste donc à explorer l'arbre des parties possibles du jeu de dames, jusqu'à arriver à une position à 10 pièces, alors connue. Pour cela, Schaffer s'appuie sur les capacités du programme Chinook à explorer cet arbre, et surtout à élaguer en déterminant quelles branches n'ont pas besoin d'être explorées afin de réduire le nombre de calculs nécessaires.
 
 ![Résolution du jeu de dames](./img/checkers_solved_fig.png)
+
+Cette figure issue de l'article publié par Schaffer et ses collègues illustre le fonctionnement de l'algorithme. On voit donc que le programme d'exploration rejoint la partie des positions grisées,connues par la base de données; on voit surtout que le programme a restreint considérablement l'espace de recherche en évitant d'explorer des positions redondantes ou inatteignables en suivant les règles.
 
 
 ### Les échecs
@@ -100,15 +108,34 @@ En 1997, le programme Deep Blue d'IBM a battu le champion du monde d'échecs, Ga
 Depuis lors, les programmes d'échecs ont continué à se développer, en utilisant des algorithmes de recherche plus avancés, tels que l'arbre de jeu alpha-bêta, et des techniques d'apprentissage automatique pour améliorer leur jeu. Ces programmes utilisent souvent des réseaux neuronaux pour identifier les caractéristiques importantes des positions de jeu. Les programmes d'échecs modernes sont souvent entraînés à partir de grandes bases de données de parties d'échecs, leur permettant de développer des stratégies plus sophistiquées et plus proches du jeu humain.
 
 
-#### Les engins modernes
-- Compétitions entre engins
-- Stockfish vs NN-based (+NN Sotckfish)
+### Les engins modernes
 
-Stockfish ELO#
-Finally, rating Stockfish on a human scale (e.g. FIDE Elo) has become an almost impossible task,
-Evaluer Stockfish contre des humains est devenu presque impossible, dû à la différence de niveau. Si l'humain perd 100 matches contre l'IA, on ne peut pas calculer d'ELO, il faut qu'il y ait au moins des matchs nuls pour évaluer.
+Actuellement, de très nombreux algorithmes permettent de battre les humains. A vrai dire la performance de ces algorithmes est tellement supérieure à celle des humains qu'il devient difficile de les mesurer avec l'ELO, la mesure habituelle utilisée aux échecs.
+L'ELO se calcule grâce aux résultats de match face à d'autres joueurs possédant déjà un ELO; mais dans le cas d'un match homme-machine, si l'humain perd tous ses matchs la mesure ne peut pas être effectuée. Il faudrait que l'humain puisse au moins obtenir quelques matchs nuls pour avoir une mesure pertinente.
 
-## Les algorithmes
+Les algorithmes actuels se mesurent donc plutôt les uns aux autres. Cela se fait à la fois à travers un classement ELO (entre machines)[^engine-ranking], et une compétition directe organisée tous les quelques mois depuis 2010, le Top Chess Engine Championship[^TCEC].
+
+Parmi les algorithmes les plus performants, on peut citer Stockfish[^stockfish], actuellement en version 15.1, qui se démarque clairement de ses concurrents par ses performances mais aussi sa popularité. Il y en a de nombreux autres, tels Leela[^leela], Komodo, Houdini, AlphaZero...
+
+## Le jeu de Go
+
+Le développement de programmes informatiques capables de battre les humains au jeu de Go a suivi un chemin assez différent des dames et des échecs. Cela s'explique en partie par le fait que le jeu est moins populaire dans le monde occidental, mais surtout par le fait que la compexité du jeu de Go dépasse largement celle de ces deux autres jeux, ce qui en a fait un défi majeur pour l'intelligence artificielle.
+
+Il y a différentes métriques pour calculer la compléxité d'un jeu combinatoire abstrait, la plus fréquement utilisée est la complexité en nombre de positions possibles. Elle permet de constater la nette différence entre les trois jeux:
+* Dames anglaises: 10^21
+* Echecs: 10^47
+* Jeu de Go: 10^171
+
+Pour le jeu de Go, les chercheurs ont exploré différentes méthodes algorithmiques. Avant les années 2000, les approches traditionnelles telles que la recherche en profondeur ne permettaient d'atteindre qu'un niveau très amateur.
+Jusqu'à 2013, des améliorations ont eu lieu grâce à des approches alternatives telles que les arbres de Monte Carlo (MCTS) et les réseaux de neurones. Ces réseaux de neurones sont entraînés sur des larges bases de données de parties de Go. En 2013, ils restent néanmoins loin de battre les meilleurs joueurs humains.
+
+C'est avec le programme AlphaGo de DeepMind que des avancées mmajeurs ont lieu. Ce programme utilise des techniques d'apprentissage profond pour s'entraîner, et peut améliorer continuellement ses performances grâce à l'utilisation de techniques de renforcement.
+
+En 2016, AlphaGo bat Lee Sedol, joueur coréeen au plus haut niveau, au cours d'un match médiatisé. Le champion du monde de Go est battu l'année suivant. DeepMind ne s'arrête pas là et développe ensuite AlphaZeroGo. Contrairement à son prédecesseur, ce programme ne dispose pas de base de donnéees de parties pour son apprentissage initial et s'entraîne uniquement en jouant contre lui-même. Enfin, le succès d'AlphaGo Zero permet à AlphaZero de voir le jour. AlphaZero est une évolution supplémentaire d'AlphaGo Zero qui a été conçue pour apprendre à jouer non seulement au jeu de Go, mais également aux jeux d'échecs et de shogi. AlphaZero utilise un réseau de neurones unique qui peut être utilisé pour jouer à tous les jeux pour lesquels il a été programmé, plutôt que d'avoir un réseau de neurones séparé pour chaque jeu.
+
+En s'inspirant des algorithmes développées par DeepMind, plusieurs autres programmes sont maintenent capables de battre les meilleurs joueurs humains.
+
+## Les algorithmes utilisés
 
 ### Représentation du jeu
 
@@ -145,7 +172,7 @@ Ainsi, l'affrontement du programme contre les meilleurs joueurs humains est une 
 
 ##### Le joueur lambda: un accès permanent à un adversaire et partenaire d'entraînement
 
-De nos jours, les éches se jouent beaucoup en ligne, avec des plateformes comptabilisant des millions d'utilisateurs. Les algorithmes sont omniprésents sur ces plateformes. Ils n'expliquent pas à eux seuls leur succés, car la possibilité de jouer à tout moment contre d'autres joueurs humains reste l'intérêt principal des échecs en ligne. Néanmoins ces algortihmes sont des outils qui améliorent grandement l'expérience des joueurs amateurs.
+De nos jours, les échecs se jouent beaucoup en ligne, avec des plateformes comptabilisant des millions d'utilisateurs. Les algorithmes sont omniprésents sur ces plateformes. Ils n'expliquent pas à eux seuls leur succés, car la possibilité de jouer à tout moment contre d'autres joueurs humains reste l'intérêt principal des échecs en ligne. Néanmoins ces algortihmes sont des outils qui améliorent grandement l'expérience des joueurs amateurs.
 
 Pour un débutant complet, les programmes d'échecs peuvent aider à apprendre les règles du jeu de manière interactive, en fournissant des explications claires et des démonstrations, puis un partenaire d'entraînement sous la forme d'un algorithme baissant volontairement la difficulté de son jeu.
 
@@ -208,3 +235,16 @@ Alpha Zero
 [^man-vs-machine]:
     Jonathan Schaeffer, « Checkers: A Preview of What Will Happen in Chess? » 
     >As the chess/checkers program becomes stronger, it becomes harder to find quality opponents to exercise the program’s skill. Testing the program in the laboratory is insufficient to cover all the cases that arise in man-machine play. Hence we must go out and seek matches against the world’s top players. This is not easy to do without appropriate financial incentives for the human players. It’s difficult to get enough games played against top-quality opposition.
+
+[^TCEC]:
+    « Top Chess Engine Championship ». In Wikipedia, 4 février 2023. https://en.wikipedia.org/w/index.php?title=Top_Chess_Engine_Championship&oldid=1137401765.
+
+[^stockfish]:
+    « Stockfish - Open Source Chess Engine ». Consulté le 3 février 2023. https://stockfishchess.org/.
+
+[^leela]:
+    « Leela Chess Zero ». Consulté le 4 février 2023. https://lczero.org/.
+
+[^engine-ranking]:
+    « CCRL 40/15 - Index ». Consulté le 4 février 2023. http://ccrl.chessdom.com/ccrl/4040/.
+
