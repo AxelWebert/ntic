@@ -164,6 +164,13 @@ Là où Nash aborde la question d'un point de vue mathématique, Arthur Samuel l
 >Une analyse doit être effectuée en remontant à partir des positions évaluées sur l'échiquier à travers « l'arbre » des mouvements possibles, chaque fois en tenant compte de l'intention du côté dont le mouvement est examiné, en supposant que l'adversaire essaierait toujours de minimiser le score de la machine tout comme la machine agit pour maximiser son score. A chaque embranchement, la position correspondante sur l'échiquier reçoit le score de la position sur l'échiquier qui résulterait du coup le plus favorable. Le report de cette procédure «minimax» au point de départ entraîne la sélection d'un «meilleur coup».
 
 
+L'algorithme Minimax est simple mais coûteux en termes de temps de calcul, car il explore tous les nœuds de l'arbre de jeu, ce qui est souvent trop lent pour les jeux plus complexes. Diverses améliorations ont donc été implémentées au cours de plusieurs décennies. En perticulier, l'algorithme Alpha-Beta permet d'élaguer certaines branches de l'arbre de jeu sans les explorer entièrement, ce qui réduit considérablement le temps de calcul nécessaire. L'algorithme Alpha-Beta est plus rapide que l'algorithme Minimax et peut trouver la même solution optimale dans certains cas, mais il ne garantit pas toujours de trouver la solution optimale à chaque fois: il s'agit d'une heuristique. Cependant, dans le cas des jeux de stratégie combinatoire abstraits, l'algorithme Alpha-Beta est suffisamment rapide et fournit des résultats assez précis pour obtenir des performances comparables ou supérieures aux humains.
+
+
+Le parcours de l'arbre ne peut se faire de manière efficace que si l'algorithme dispose d'une bonne fonction d'évaluation. Les fonctions d'évaluation sont définies par des heuristiques qui évaluent la position actuelle du plateau de jeu. Elles sont souvent développées par des experts en ce jeu. Aux échecs, cela reposent sur des principes tels que la mobilité des pièces, la sécurité du roi, le contrôle du centre, la structure des pions, les menaces et les avantages matériels. Les programmes d'échecs peuvent disposer de fonctions d'évaluation très complexes, et ajuster les valeurs des heuristiques en fonction de la phase du jeu (ouverture, milieu de partie, fin de partie) ainsi de l'expérience acquise au fil des parties précédentes (apprentissage par renforcement).
+
+Les réseaux de neurones peuvent être utilisés pour améliorer les fonctions d'évaluation des programmes de jeux en permettant une modélisation plus complexe et plus précise. Au lieu de se baser directement sur l'expertise humaine, les réseaux de neurones peuvent apprendre à partir d'une grande quantité de données de parties jouées par des joueurs expérimentés. Cela n'a pas été nécessaire pour le programme Chinook aux dames. Pour le jeu de Go au contraire, ces réseaux de neurones ont été la clé du succés. Aux échecs, les deux approches fonctionnent pour obtenir des performances très élevés, mais les réseaux de neurones sont supérieurs, comme le prouve le succès d'AlphaZero ou encore le fait que les dernières versions de Stockfish utilisent des réseaux de neurones. 
+
 ## Les joueurs humains et les algorithmes d'échecs
 
 ### L'homme face à la machine
@@ -211,7 +218,7 @@ Une quinzaine d'années plus tard, il est clair que l'ordinateur est un outil es
 ## Conclusion
 
 En conclusion, l'intelligence artificielle dans les jeux de stratégie combinatoire abstraits offre des réalisations fascinantes en termes de création de programmes de jeux performants. En outre, les techniques d'apprentissage profond utilisées dans les programmes de jeux de stratégie peuvent également être appliquées avec succès à d'autres domaines de l'IA, offrant un potentiel de développement prometteur pour l'avenir.
-Enfin, ces programmes informatiques permettent aussi aux humains de progresser: les rôles s'inverse et cette fois-ci ce sont les humains qui apprennent des machines.
+Enfin, ces programmes informatiques permettent aussi aux humains de progresser: les rôles s'inversent et cette fois-ci ce sont les humains qui apprennent des machines.
 
 ## Bibliographie
 
