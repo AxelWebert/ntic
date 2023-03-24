@@ -12,15 +12,16 @@ Dans cette catégorie de jeux, les plus connus sont les échecs, les dames et le
 Notons qu'il existe de nombreux autres jeux correspondant à ces critères: Othello, Abalone, Hex, Puissance 4, Shôgi, Awélé...
 
 <style>
+.row {
+  display: flex;
+}
+
 .column {
-  float: left;
-  width: 33%;
+  flex: 33.33%;
   padding: 5px;
 }
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.p {
+    align: center
 }
 </style>
 
