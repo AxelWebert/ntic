@@ -199,13 +199,10 @@ Une quinzaine d'années plus tard, il est clair que l'ordinateur est un outil es
 
 * Préparation de parties : Les programmes d'échecs peuvent aider un joueur professionnel à préparer des parties en analysant les jeux précédents de l'adversaire et en identifiant ses habitudes et ses faiblesses. Cela permet au joueur professionnel de planifier une stratégie efficace pour le match à venir.
 
-* Découverte de nouvelles stratégies : Les programmes d'échecs peuvent aider les joueurs professionnels à découvrir de nouvelles stratégies et des ouvertures novatrices en utilisant des algorithmes de recherche pour explorer de nouvelles variations de parties. Cela peut aider le joueur à trouver des moyens créatifs de surprendre l'adversaire et de gagner des partie
+* Découverte de nouvelles stratégies : Les programmes d'échecs peuvent aider les joueurs professionnels à découvrir de nouvelles stratégies et des ouvertures novatrices en utilisant des algorithmes de recherche pour explorer de nouvelles variations de parties. Cela peut aider le joueur à trouver des moyens créatifs de surprendre l'adversaire et de gagner des parties.
 
-### Le jeu de Go
 
-Alpha Zero
-
-### KK
+## Bibliographie
 
 [^checkers-solved-atlantic]:
     Madrigal, Alexis C. « How Checkers Was Solved ». The Atlantic, 19 juillet 2017. <https://www.theatlantic.com/technology/archive/2017/07/marion-tinsley-checkers/534111/>.
@@ -247,4 +244,3 @@ Alpha Zero
 
 [^engine-ranking]:
     « CCRL 40/15 - Index ». Consulté le 4 février 2023. http://ccrl.chessdom.com/ccrl/4040/.
-
