@@ -11,12 +11,28 @@ Dans cette catégorie de jeux, les plus connus sont les échecs, les dames et le
 
 Notons qu'il existe de nombreux autres jeux correspondant à ces critères: Othello, Abalone, Hex, Puissance 4, Shôgi, Awélé...
 
+![Jeu de dames](./img/checkers.jpg)
+
+<p align="center">
+  <img src="./img/checkers.jpg" height="100" />
+</p>
+
+![Jeu de dames](./img/checkers.jpg)
+![Jeu d'échecs](./img/echecs.jpg)
+![Jeu de go](./img/go.jpg)
+
 ### Le jeu de Dames
 
 #### Histoire
 
 Pour aborder l'histoire de la résolution du jeu de dames par l'informatique, un article de "The Atlantic"[^checkers-solved-atlantic] offre un récit détaillé de cette aventure, lui prêtant un air romanesque.
 3 personnes sont mises en avant: Arthur Samuel, pionnier du Machine Learning dans les années 50, dont le programme bat un humain en 1963, mais dont les progrès restent très limités par les technologies de l'époque; Marion Tinsley, Champion du monde de Dames et considéré unanimement comme le plus grand joueur de tous les temps, ayant perdu seulement 3 fois entre 1950 et 1991; et Jonathan Schaeffer, programmeur qui développa le projet Chinook en 1989, qui dès 1992 affronta avec son programme Marion Tinsley et perdit de peu.
+
+![Arthur Samuel](./img/Arthur_Samuel.jpg)
+
+![Marion Tinsley](./img/Marion_Tinsley.jpg)
+
+![Jonathan Schaeffer](./img/Jonathan_Schaeffer.jpg)
 
 L'histoire racontée par The Atlantic est pourtant bien ancrée dans la réalité: c'est exactement la même histoire qui est raconté en 2008 par Jonathan Schaeffer lui-même dans son article publié dans Science annoncant que les dames étaient un jeu résolu (Checkers Was Solved)[^checkers-solved-paper]. En 3 paragraphes brefs, il décrit la même histoire et explique que, Tinsley étant malheureusement décédé en 1994, la revanche entre CHINOOK et lui avait été interrompue, la seule manière de prouver de manière convaincante la supériorité de l'ordinateur sur l'humain était de prouver rigoureusement que le jeu de Dames est un jeu résolu.
 
